@@ -1,0 +1,70 @@
+/* Conteneur du header */
+.header-container {
+    background-color:#F9D0A3  ; /* Couleur de fond */
+    padding: 20px;
+    text-align: center;
+  }
+  @font-face {
+    font-family: 'BubbleboddyNeue-Bold';
+    src: url('/assets/fonts/BubbleboddyNeue-Bold-Trial.ttf') format('truetype');
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Confortaa-Regular';
+    src: url('/assets/fonts/confortaa-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+   h1{
+    color:   #151217  ; 
+    font-family: "BubbleboddyNeue-Bold";
+    
+    font-style: normal;
+  }
+  .input[type="text"] {
+
+    position: absolute;
+    top: 10px;  /* Distance du haut */
+    right: 10px; /* Distance de la droite */
+     /* Ajuste la taille si besoin */
+    height: auto;
+  }
+  
+  /* Style de base de la navigation */
+  ul {
+    list-style: none;
+    padding: 0;
+  
+  }
+  
+  /* Classe pour activer le mode flex */
+  .nav-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* Style des liens */
+  ul li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: #151217 ;
+    font-family: 'Confortaa-Regular';
+    font-weight: normal;
+  }
+  
+  ul li a.active {
+    color:#DA001E; /* Couleur du lien actif */
+  }
+  img {
+    position: absolute;
+    top: 10px;  /* Distance du haut */
+    left: 10px; /* Distance de la droite */
+     /* Ajuste la taille si besoin */
+    height: auto;
+  }
+  

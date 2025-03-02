@@ -1,15 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-header',
-  standalone: true, // Angular 15+ sans modules
-  imports: [RouterLink, RouterLinkActive ], // Importation nécessaire pour ngStyle
+  standalone: true,
+  imports: [NgClass, RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrls: []
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  @Input() title = 'Mon site';
-
- 
+  title = "Au Petit Village";
+  
+  logo = "assets/images/au-petit-village.png";
+  isFlex = true; // Active ou désactive le display flex
 }

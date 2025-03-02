@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  @font-face{
+    font-family: 'Confortaa-Regular';
+    src: url('/assets/fonts/Confortaa-Regular.ttf')format('truetype');
+    font-style: normal;
+  }
+  p { 
+    color:#151217  ;
+    font-family: "Confortaa-Regular";
+    font-weight: bold;
+
+
+  }
+  
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  router-outlet {
+    flex: 1; /* Permet au contenu de prendre tout l'espace restant */
+  }
+  

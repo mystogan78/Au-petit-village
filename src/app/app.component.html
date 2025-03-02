@@ -1,4 +1,22 @@
-<app-header></app-header>
-<app-footer></app-footer>
-<!-- Obligatoire pour afficher les composants liés aux routes -->
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <app-header></app-header>
+
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <mat-grid-list cols="3" rowHeight="200px" gutterSize="10px">
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card>Carte 1</mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card>Carte 2</mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card>Carte 3</mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <app-footer></app-footer>
+</div>

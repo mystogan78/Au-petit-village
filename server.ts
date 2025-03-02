@@ -1,42 +1,44 @@
-import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import { renderApplication } from '@angular/platform-server';
+import { APP_BASE_HREF } from '@angular/common';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './src/app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './src/app/app.routes';
+import { importProvidersFrom } from '@angular/core';
 
-// The Express app is exported so that it can be used by serverless Functions.
+// Fonction de bootstrap pour SSR
+function bootstrap() {
+  return bootstrapApplication(AppComponent, {
+    providers: [
+      importProvidersFrom(BrowserModule),
+      provideRouter(routes),
+      { provide: APP_BASE_HREF, useValue: '/' },
+    ],
+  });
+}
+
+// Express Server
 export function app(): express.Express {
   const server = express();
   const serverDistFolder = dirname(fileURLToPath(import.meta.url));
   const browserDistFolder = resolve(serverDistFolder, '../browser');
   const indexHtml = join(serverDistFolder, 'index.server.html');
 
-  const commonEngine = new CommonEngine();
-
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
   server.get('*.*', express.static(browserDistFolder, {
     maxAge: '1y'
   }));
 
-  // All regular routes use the Angular engine
+  // All regular routes use the Angular rendering engine
   server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
-
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
+    bootstrap()
+      .then(() => res.sendFile(indexHtml)) // Envoie le fichier HTML rendu
       .catch((err) => next(err));
   });
 

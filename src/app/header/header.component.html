@@ -1,9 +1,13 @@
-<div>
-    <h1>{{title}}</h1>
-    <ul>
-        <li> <a routerLink ="/home"  routerLinkActive="active">Accueil</a> </li>
-        <li><a routerLink ="/about"  routerLinkActive="active">A propos</a></li>
-        <li><a routerLink ="/product"  routerLinkActive="active">Produits</a></li>
 
+
+<div class="header-container">
+    <h1>{{ title }}</h1>
+    
+
+    <img [src]="logo"  alt = " au-petit-village">
+    <ul [ngClass]="{ 'nav-flex': isFlex }">
+        <li> <a routerLink="/home" routerLinkActive="active">Accueil</a> </li>
+        <li> <a routerLink="/about" routerLinkActive="active">À propos</a> </li>
+        <li> <a routerLink="/product" routerLinkActive="active">Produits</a> </li>
     </ul>
 </div>
