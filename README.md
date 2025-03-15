@@ -1,28 +1,34 @@
 # AuPetitVillage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.12.
+## Description 
+Ce projet est une application web de site e-commerce pour la vente de figurines. Il permet aux utilisateurs de consulter une collection de figurines, d'ajouter des produits à la liste, de les supprimer et de rechercher des produits par nom.
 
-## Development server
+## Technologie utilisées
+Angular 19 pour le framework frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Bootstrap pour le design et le responsive
 
-## Code scaffolding
+RxJS pour la gestion des flux de données asynchrones
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+TypeScript pour la robustesse du code
 
-## Build
+## Fonctionnalités 
+Affichage dynamique des produits sur la page d'accueil
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ajout de produits à la liste des produits via un formulaire
 
-## Running unit tests
+Suppression des produits ajoutés
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Recherche de produits par nom
 
-## Running end-to-end tests
+Affichage des détails d'un produit
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Interface responsive grâce à Bootstrap
 
-## Further help
+## Ameliorations Futur 
+Intégration d'un panier avec gestion des quantités
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# Au-petit-village
+Système d'authentification pour les utilisateurs
+
+Page de commande avec suivi des achats
+
