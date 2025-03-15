@@ -6,17 +6,12 @@
     <router-outlet></router-outlet>
   </main>
 
-  <mat-grid-list cols="3" rowHeight="200px" gutterSize="10px">
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card>Carte 1</mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card>Carte 2</mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="1">
-      <mat-card>Carte 3</mat-card>
+  <mat-grid-list [cols]="gridCols" rowHeight="200px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let card of cards" colspan="1" rowspan="1">
+      <mat-card>{{ card.title }}</mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+  
   
   <app-footer></app-footer>
 </div>

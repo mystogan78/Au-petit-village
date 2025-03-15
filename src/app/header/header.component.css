@@ -1,70 +1,65 @@
 /* Conteneur du header */
 .header-container {
-    background-color:#F9D0A3  ; /* Couleur de fond */
-    padding: 20px;
-    text-align: center;
-  }
-  @font-face {
-    font-family: 'BubbleboddyNeue-Bold';
-    src: url('/assets/fonts/BubbleboddyNeue-Bold-Trial.ttf') format('truetype');
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Confortaa-Regular';
-    src: url('/assets/fonts/confortaa-Regular.ttf') format('truetype');
-    font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  width: 100%;
+  height: 80px;
+  position: relative;
 }
-   h1{
-    color:   #151217  ; 
-    font-family: "BubbleboddyNeue-Bold";
-    
-    font-style: normal;
-  }
-  .input[type="text"] {
+.bg-light {
+  background-color: #F9D0A3 !important;
+}
+/* Importation de la police BubbleBoddyNeue-Bold */
+@font-face {
+  font-family: 'BubbleBoddyNeue-Bold';
+  src: url('/assets/fonts/BubbleboddyNeue-Bold-Trial.ttf');
+}
 
-    position: absolute;
-    top: 10px;  /* Distance du haut */
-    right: 10px; /* Distance de la droite */
-     /* Ajuste la taille si besoin */
-    height: auto;
-  }
-  
-  /* Style de base de la navigation */
-  ul {
-    list-style: none;
-    padding: 0;
-  
-  }
-  
-  /* Classe pour activer le mode flex */
-  .nav-flex {
-    display: flex;
-    justify-content: space-around;
+/* Application de la police personnalisée au titre */
+h1 {
+  font-family: 'BubbleBoddyNeue-Bold', sans-serif;
+}
+
+/* Logo centré */
+.header-container img {
+  height: auto;
+  max-width: 120px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Menu burger à gauche */
+.burger-menu {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 20px;  /* Assure qu'il reste bien à gauche */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Mode mobile */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
+    text-align: center;
+    padding: 10px 0;
   }
-  
-  /* Style des liens */
-  ul li {
-    display: inline-block;
-    margin: 0 15px;
+
+  /* Cacher le titre en mobile */
+  .header-container h1 {
+    display: none;
   }
-  
-  ul li a {
-    text-decoration: none;
-    color: #151217 ;
-    font-family: 'Confortaa-Regular';
-    font-weight: normal;
+
+  /* Menu burger visible */
+  .burger-menu {
+    display: block;
   }
-  
-  ul li a.active {
-    color:#DA001E; /* Couleur du lien actif */
-  }
-  img {
-    position: absolute;
-    top: 10px;  /* Distance du haut */
-    left: 10px; /* Distance de la droite */
-     /* Ajuste la taille si besoin */
-    height: auto;
-  }
-  
+}
