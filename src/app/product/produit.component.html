@@ -12,7 +12,11 @@
           <p><strong>Prix :</strong> {{ product.price }} €</p>
 
           <!-- Bouton pour supprimer -->
+        <div class="d-flex justify-content-between">
           <button (click)="removeProduct(product.name)" class="btn btn-danger">Supprimer</button>
+      <a [routerLink]="['/produit', product.name]" class="btn btn-light">Voir les détails</a>
+    </div>  
+      
         </div>
       </div>
     </div>

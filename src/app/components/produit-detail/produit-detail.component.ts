@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-produit-detail',
@@ -16,7 +17,8 @@ export class ProduitDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private location : Location
   ) {}
 
   ngOnInit(): void {
@@ -31,4 +33,15 @@ export class ProduitDetailComponent implements OnInit {
       }
     }
   }
+  addProductToService(product: Product): void {
+    this.productService.addProduct(product);
+    alert(`${product.name} a été ajouté au panier depuis la page de détails !`);
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  
+  
+
+
 }

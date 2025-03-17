@@ -14,23 +14,21 @@
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products | sortByPrice: sortOrder">
       <div class="card mb-4">
-        <img [src]="product.image" class="card-img-top" [alt]="product.name">
+        <!-- Rendre l'image cliquable pour accéder aux détails du produit -->
+        <a [routerLink]="['/produit', product.name]">
+          <img [src]="product.image" class="card-img-top" [alt]="product.name">
+        </a>
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">{{ product.description }}</p>
           <p><strong>Prix :</strong> {{ product.price }} €</p>
           
-          <!-- Boutons sur la même ligne -->
-          <div class="d-flex justify-content-between">
-            <!-- Bouton Ajouter au panier -->
-          
-            <button (click)="addProductToService(product)" class="btn btn-dark">Ajouter</button>
-
-            <!-- Bouton Voir les détails -->
-            <a [routerLink]="['/produit', product.name]" class="btn btn-light">Voir les détails</a>
-          </div>
+          <!-- Bouton Ajouter depuis la page de détails -->
+          <button (click)="addProductToService(product)" class="btn btn-dark">Ajouter</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+  
+  </div>
+
