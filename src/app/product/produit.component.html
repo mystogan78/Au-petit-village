@@ -1,0 +1,20 @@
+<div class="container">
+  <h2 class="text-center">{{title}}</h2>
+  <p class="text-center">{{description}}</p>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of addedProducts">
+      <div class="card mb-4">
+        <img [src]="product.image" class="card-img-top" [alt]="product.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p><strong>Prix :</strong> {{ product.price }} €</p>
+
+          <!-- Bouton pour supprimer -->
+          <button (click)="removeProduct(product.name)" class="btn btn-danger">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

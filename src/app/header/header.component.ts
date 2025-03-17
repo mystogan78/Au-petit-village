@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
-import { RouterLink} from '@angular/router';
-
+import { ProductService } from '../services/product.service';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
+  imports: [FormsModule, RouterLink],
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  title = "Au Petit Village";
-  logo = "assets/images/au-petit-village.png";
-  isMenuOpen = false;
+  title = 'Au village';
+  logo = 'assets/images/au-petit-village.png';
+  searchTerm: string = '';
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
+  constructor(private productService: ProductService) {}
 
-  closeMenu() {
-    this.isMenuOpen = false;
+  onSearch(): void {
+    if (this.searchTerm.trim()) {
+      this.productService.filterProducts(this.searchTerm);
+    } else {
+      this.productService.resetFilter();
+    }
   }
+  
+  
 }

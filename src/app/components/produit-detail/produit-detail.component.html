@@ -1,0 +1,11 @@
+<div *ngIf="produit as p" class="container">
+  <h3>{{ p.name }}</h3>
+  <p>Description : {{ p.description }}</p>
+  <p>Prix : {{ p.price }} €</p>
+  <p>Catégorie : {{ p.category }}</p>
+  <img [src]="p.image" alt="{{ p.name }}" width="300" />
+</div>
+
+<div *ngIf="!produit" class="container">
+  <p>Produit non trouvé.</p>
+</div>

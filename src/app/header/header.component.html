@@ -1,34 +1,46 @@
-<header class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container d-flex justify-content-between align-items-center">
-    <!-- Bouton menu burger à gauche -->
-    <button class="navbar-toggler order-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img [src]="logo" alt="Au petit village" routerLink="/">
+  <h1 class="navbar-brand">{{ title }}</h1>
+ 
 
-    <!-- Logo centré -->
-    <a class="navbar-brand mx-auto order-2" routerLink="/">
-      <img [src]="logo" alt="Logo Au Petit Village" height="50">
-    </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!-- Titre (caché en mobile, visible en desktop) -->
-    <h1 class="d-none d-lg-block mx-auto order-3">{{ title }}</h1>
-
-    <!-- Menu de navigation -->
-    <div class="collapse navbar-collapse order-4" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/about" routerLinkActive="active">À propos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/product" routerLinkActive="active">Produits</a>
-        </li>
-        
-      </ul>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">À propos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">Produits</a>
+      </li>
+    </ul>
   </div>
-</header>
+  
+    <form class="d-flex" (submit)="onSearch()">
+      <input
+        [(ngModel)]="searchTerm"
+        name="search"
+        class="form-control me-2"
+        type="search"
+        placeholder="Veuillez entrer le nom..."
+        aria-label="Search"
+      />
+      <button type="submit" class="btn btn-dark">Rechercher</button>
+    </form>
+  
+</nav>
+
 

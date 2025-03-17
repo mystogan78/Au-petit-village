@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-footer',
@@ -17,5 +18,14 @@ export class FooterComponent {
   faInstagram = faInstagram;
   faGithub = faGithub;
   faLinkedin = faLinkedin;
+
+  searchTerm: string = '';
+
+  constructor(private productService: ProductService) {}
+
+  search(): void {
+    const filteredProducts = this.productService.filterProducts(this.searchTerm);
+    console.log('Produits filtrés :', filteredProducts);
+  }
 
 }
